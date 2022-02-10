@@ -5,7 +5,7 @@ class Kernel{
 
 
     public static function run(){
-        $type = 'home';
+        $type = 'velo';
         $action = 'index';
 
         if (!empty($_GET['type'])) {

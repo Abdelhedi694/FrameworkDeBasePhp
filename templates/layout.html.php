@@ -13,15 +13,21 @@
 <body>
 
 <nav class="navbar nav-expand-lg navbar-light bg-dark p-4">
-    <a href="/Frameworkdebase" class="navbar-brand">BAR</a>
-   
+    <a href="/cyclisterie" class="navbar-brand">BAR</a>
+    <?php if (isset($_SESSION['user']) ) { ?>
+        <a href="?type=user&action=signOut" class="btn btn-danger">Deconnexion</a>
+    <?php } else { ?>
+    <a href="?type=user&action=signUp" class="btn btn-primary">Créer un compte</a>
+    <a href="?type=user&action=signIn" class="btn btn-secondary">Connexion</a>
+    <?php } ?>
+
 </nav>
 
 
-<div class="alert alert-warning alert-dismissible fade <?php if ($_GET["info"]=="deleteErreur") {
+<div class="alert alert-warning alert-dismissible fade <?php if (isset($_GET["info"]) ) {
     echo "show";
 } ?>" role="alert">
-  <strong>Erreur</strong> id innexistant !
+<?= $_GET['info'] ?>
   <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
 </div>
 

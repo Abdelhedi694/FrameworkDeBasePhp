@@ -52,16 +52,16 @@ public function findById($id)
 
 /**
 * supprime un élément dans la bdd en verifiant son id
-* @param int $id
+* @param object $monObjet
 * @return void
 */
-public function remove(int $id):void
+public function remove(object $monObjet):void
 {
     
     $requeteSupression = $this->pdo->prepare("DELETE FROM {$this->nomDeLaTable} WHERE id = :id");
 
 $requeteSupression->execute([
-    "id"=> $id,
+    "id"=> $monObjet->getId(),
     
 ]);
 }
